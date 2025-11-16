@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb' // allow large base64 uploads
+    }
+  }
 };
-
-export default nextConfig;
