@@ -1,16 +1,10 @@
-// lib/db.ts
 import mongoose, { ConnectOptions } from "mongoose";
 
 declare global {
-  // Prevent multiple connections in dev
-  const mongo: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
+  var mongo: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
 }
 
-let cached = global.mongo;
-
-if (!cached) {
-  cached = global.mongo = { conn: null, promise: null };
-}
+const cached = global.mongo || { conn: null, promise: null };
 
 export async function connectToDB() {
   if (cached.conn) return cached.conn;
