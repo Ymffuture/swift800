@@ -47,7 +47,7 @@
     "jsPDF": "^2.5.1",
     "nodemailer": "^6.9.4",
     "puppeteer-core": "^22.0.0",
-    "@sparticuz/chromium": "^124.0.0",
+    "@sparticuz/chromium": "^137.0.1",
     "signature_pad": "^4.0.0",
     "twilio": "^4.21.0",
     "tailwindcss-animate": "^1.0.7"
