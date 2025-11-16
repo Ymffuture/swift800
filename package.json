@@ -40,12 +40,16 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.0",
-    "axios": "^1.0.0",
-"cloudinary": "^1.30.0",
-"html2canvas": "^1.4.1",
-"jsPDF": "^2.5.1",
-"mongoose": "^6.0.0",
-"signature_pad": "^4.0.0", 
+    "axios": "^1.5.0",
+    "cloudinary": "^1.40.0",
+    "chrome-aws-lambda": "^10.1.0",
+    "html2canvas": "^1.4.1",
+    "jsPDF": "^2.5.1",
+    "mongoose": "^7.0.0",
+    "nodemailer": "^6.9.4",
+    "puppeteer-core": "^21.0.0",
+    "signature_pad": "^4.0.0",
+    "twilio": "^4.1.0"
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
