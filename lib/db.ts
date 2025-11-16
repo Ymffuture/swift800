@@ -1,24 +1,30 @@
 // lib/db.ts
-import mongoose from 'mongoose';
+import mongoose, { ConnectOptions } from "mongoose";
 
-
-const MONGODB_URI = process.env.MONGODB_URI as string;
-
-
-if (!MONGODB_URI) throw new Error('Please define MONGODB_URI in .env');
-
-
-let cached: { conn: any; promise: any } = (global as any)._mongo || { conn: null, promise: null };
-
-
-if (!cached.promise) {
-cached.promise = mongoose.connect(MONGODB_URI).then((m) => m.connection);
-(global as any)._mongo = cached;
+declare global {
+  // Prevent multiple connections in dev
+  var mongo: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
 }
 
+let cached = global.mongo;
 
-export default async function dbConnect() {
-if (cached.conn) return cached.conn;
-cached.conn = await cached.promise;
-return cached.conn;
+if (!cached) {
+  cached = global.mongo = { conn: null, promise: null };
+}
+
+export async function connectToDB() {
+  if (cached.conn) return cached.conn;
+
+  if (!cached.promise) {
+    const uri = process.env.MONGODB_URI;
+    if (!uri) throw new Error("MONGODB_URI is not defined");
+
+    cached.promise = mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    } as ConnectOptions);
+  }
+
+  cached.conn = await cached.promise;
+  return cached.conn;
 }
