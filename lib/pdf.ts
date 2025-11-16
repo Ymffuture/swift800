@@ -1,8 +1,8 @@
 // lib/pdf.ts
-import puppeteer from 'puppeteer-core';
-import chromium from '@sparticuz/chromium';
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 
-export async function generatePDF(html: string) {
+export async function generatePDF(html: string): Promise<Buffer> {
   const executablePath = await chromium.executablePath();
 
   const browser = await puppeteer.launch({
@@ -13,9 +13,9 @@ export async function generatePDF(html: string) {
   });
 
   const page = await browser.newPage();
-  await page.setContent(html, { waitUntil: 'networkidle0' });
+  await page.setContent(html, { waitUntil: "networkidle0" });
 
-  const pdf = await page.pdf({ format: 'A4', printBackground: true });
+  const pdf = await page.pdf({ format: "A4", printBackground: true });
   await browser.close();
   return pdf;
 }
