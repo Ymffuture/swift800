@@ -45,7 +45,6 @@
 "html2canvas": "^1.4.1",
 "jsPDF": "^2.5.1",
 "mongoose": "^6.0.0",
-"next": "13.4.0", 
 "signature_pad": "^4.0.0", 
     "tailwindcss-animate": "^1.0.7"
   },
