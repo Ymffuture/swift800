@@ -3,7 +3,7 @@ import mongoose, { ConnectOptions } from "mongoose";
 
 declare global {
   // Prevent multiple connections in dev
-  var mongo: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
+  const mongo: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
 }
 
 let cached = global.mongo;
