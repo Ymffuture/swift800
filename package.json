@@ -4,8 +4,8 @@
   "private": true,
   "description": "A Next.js template for building applications with MongoDB, featuring TypeScript and shadcn/ui / Tailwind CSS integration",
   "author": {
-    "name": "Jesse Hall",
-    "url": "https://github.com/codeSTACKr"
+    "name": "Kgomotso Nkosi",
+    "url": "https://github.com/Ymffuture"
   },
   "homepage": "https://github.com/mongodb-developer/nextjs-template-mongodb#readme",
   "repository": {
@@ -36,31 +36,31 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.510.0",
     "mongodb": "^6.3.0",
+    "mongoose": "^7.6.0",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.0",
     "axios": "^1.5.0",
-    "cloudinary": "^1.40.0",
-    "chrome-aws-lambda": "^10.1.0",
+    "cloudinary": "^2.0.0",
     "html2canvas": "^1.4.1",
     "jsPDF": "^2.5.1",
-    "mongoose": "^7.0.0",
     "nodemailer": "^6.9.4",
-    "puppeteer-core": "^21.0.0",
+    "puppeteer-core": "^22.0.0",
+    "@sparticuz/chromium": "^124.0.0",
     "signature_pad": "^4.0.0",
-    "twilio": "^4.1.0", 
+    "twilio": "^4.21.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@types/node": "^20.4.5",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "eslint": "^9.9.0",
     "eslint-config-next": "15.1.6",
-    "postcss": "^8",
+    "postcss": "^8.4.31",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5.3.3"
   }
 }
