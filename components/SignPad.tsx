@@ -1,35 +1,36 @@
-// components/SignPad.tsx
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import SignaturePad from "signature_pad";
 
-interface SignPadProps {
-  onEnd: (dataURL: string) => void;
+interface Props {
+  onEnd: (dataUrl: string) => void;
 }
 
-const SignPad: React.FC<SignPadProps> = ({ onEnd }) => {
+export default function SignPad({ onEnd }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const sigPadRef = useRef<SignaturePad | null>(null);
 
   useEffect(() => {
-    if (canvasRef.current) {
-      sigPadRef.current = new SignaturePad(canvasRef.current);
-      sigPadRef.current.onEnd = () => {
-        const data = sigPadRef.current?.toDataURL() ?? "";
-        onEnd(data);
-      };
-    }
-  }, [onEnd]);
+    if (!canvasRef.current) return;
 
-  const clear = () => sigPadRef.current?.clear();
+    sigPadRef.current = new SignaturePad(canvasRef.current);
+
+    // Use the official typed event
+    sigPadRef.current.addEventListener("endStroke", () => {
+      const data = sigPadRef.current?.toDataURL() ?? "";
+      onEnd(data);
+    });
+
+    return () => {
+      sigPadRef.current?.off(); // cleanup if needed
+    };
+  }, []);
 
   return (
-    <div className="border p-2">
-      <canvas ref={canvasRef} className="w-full h-64 border" />
-      <button onClick={clear} className="mt-2 bg-red-600 text-white px-4 py-2 rounded">
-        Clear
-      </button>
-    </div>
+    <canvas
+      ref={canvasRef}
+      width={500}
+      height={250}
+      style={{ border: "1px solid #ccc" }}
+    />
   );
-};
-
-export default SignPad;
+}
