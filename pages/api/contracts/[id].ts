@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connectToDB } from "@/lib/db";
 import Contract from "@/models/contract.model";
-import { sendEmail as _sendEmail } from '@/lib/email';
+// import { sendEmail as _sendEmail } from '@/lib/email';
 // import { sendSms } from "@/lib/sms"; // remove if unused
 
 export default async function handler(
