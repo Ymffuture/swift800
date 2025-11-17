@@ -1,7 +1,7 @@
 import mongoose, { ConnectOptions } from "mongoose";
 
 declare global {
-  var mongo: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
+  let mongo: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
 }
 
 const cached = global.mongo || { conn: null, promise: null };
